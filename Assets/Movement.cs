@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     private float playerSpeed = 2.0f;
     private float jumpHeight = 3.0f;
     private float gravityValue = -9.81f;
+    private bool isStanding;
+    public GameObject platformPosition;
 
     private void Start()
     {
@@ -20,7 +22,18 @@ public class Movement : MonoBehaviour
         // wyci¹gamy wartoœci, aby mo¿liwe by³o ich efektywniejsze wykorzystanie w funkcji
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
+        if(isStanding)
+        {
+            gravityValue = 0;
+            playerVelocity.x = 0;
+            playerVelocity.y = 0;
+            playerVelocity.z = 0;
 
+        }
+        if(!isStanding)
+        {
+            gravityValue = -9.81f;
+        }
         // dziêki parametrowi playerGrounded mo¿emy dodaæ zachowania, które bêd¹
         // mog³y byæ uruchomione dla ka¿dego z dwóch stanów
         groundedPlayer = controller.isGrounded;
@@ -56,5 +69,10 @@ public class Movement : MonoBehaviour
     public void Jump(int strenght)
     {
         playerVelocity.y += Mathf.Sqrt(strenght* jumpHeight * -3.0f * gravityValue);
+    }
+    public void Stay(Vector3 vec)
+    {
+        transform.position = vec;
+        isStanding = true;
     }
 }
