@@ -9,17 +9,7 @@ public class BossGun : MonoBehaviour
     public float bulletForce = 10f;
     public bool onShooting = true;
     public float period = 0.0f;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
     public void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

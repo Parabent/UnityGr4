@@ -49,4 +49,14 @@ public class Movement : MonoBehaviour
        transform.position = (rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
     }
+    public void SpeedUp(int speed)
+    {
+        moveSpeed += speed;
+        StartCoroutine("wait",speed);
+    }
+    public IEnumerator wait(int speed)
+    {
+        yield return new WaitForSeconds(5);
+        moveSpeed -= speed;
+    }
 }

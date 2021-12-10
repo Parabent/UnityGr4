@@ -39,10 +39,11 @@ public class EnemyShooting : MonoBehaviour
             }
             if (isBoss && !cooldown)
             {
-                Debug.Log(firepoints.Count);
+                //Debug.Log(firepoints.Count);
                 if(firepoints.Count!=0)
                 {
                     rand = Random.Range(0, firepoints.Count);
+                    Debug.Log(rand);
                 }
                 
                 ShootOther(rand);
@@ -74,6 +75,7 @@ public class EnemyShooting : MonoBehaviour
     {
         if(firepoints.Count >0)
         {
+            //Debug.Log("FIREPOINTSCOUNT"+firepoints.Count);
             try
             {
                 firepoints[count].GetComponent<BossGun>().Shoot();
@@ -87,9 +89,13 @@ public class EnemyShooting : MonoBehaviour
     }
     public void TakeFromList(int i)
     {
-        if(firepoints.Count >0)
+        if(firepoints.Count >1 && i<firepoints.Count)
         {
             firepoints.Remove(firepoints[i]);
+        }
+        else
+        {
+            firepoints.Remove(firepoints[firepoints.Count - 1]);
         }
 
     }
