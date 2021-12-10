@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponentInParent<Boss>().TakeDamage();
             gameObject.GetComponentInParent<EnemyShooting>().TakeFromList(number);
         }
+        Stats.points += points;
+        Debug.Log(Stats.points);
         text.GetComponent<Points>().SetPoints(points);
         Destroy(gameObject, 0.01f);
     }

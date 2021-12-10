@@ -20,6 +20,8 @@ public class TreasureCollision : MonoBehaviour
         {
             if (collision.attachedRigidbody.name == "Character")
             {
+                Stats.points += points;
+                Debug.Log(Stats.points);
                 text.GetComponent<Points>().SetPoints(points);
                 Destroy(gameObject);
             }

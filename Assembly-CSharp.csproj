@@ -72,13 +72,14 @@
     <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\ResetJumping.cs" />
     <Compile Include="Assets\EndScene.cs" />
+    <Compile Include="Assets\Active.cs" />
+    <Compile Include="Assets\PotionCollison.cs" />
     <Compile Include="Assets\Heal.cs" />
     <Compile Include="Assets\BossGun.cs" />
     <Compile Include="Assets\TreasureCollision.cs" />
     <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\EnemyShooting.cs" />
-    <Compile Include="Assets\Active.cs" />
-    <Compile Include="Assets\PotionCollison.cs" />
+    <Compile Include="Assets\Stats.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
